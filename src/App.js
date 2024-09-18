@@ -7,14 +7,17 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [filterDate, setFilterDate] = useState("");
 
+  // Add a new event
   const addEvent = (event) => {
     setEvents([...events, { ...event, id: Date.now() }]);
   };
 
+  // Delete an event by ID
   const deleteEvent = (id) => {
     setEvents(events.filter((event) => event.id !== id));
   };
 
+  // Edit an existing event
   const editEvent = (updatedEvent) => {
     setEvents(
       events.map((event) =>
@@ -23,6 +26,7 @@ const App = () => {
     );
   };
 
+  // Filter events by date
   const filteredEvents = filterDate
     ? events.filter(
         (event) =>

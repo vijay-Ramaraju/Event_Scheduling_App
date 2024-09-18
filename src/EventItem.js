@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./EventItem.css";
 
 const EventItem = ({ event, deleteEvent, editEvent }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -11,9 +12,9 @@ const EventItem = ({ event, deleteEvent, editEvent }) => {
   };
 
   return (
-    <div>
+    <div className="event-item">
       {isEditing ? (
-        <form onSubmit={handleUpdate}>
+        <form className="form-container" onSubmit={handleUpdate}>
           <input
             type="text"
             value={updatedEvent.eventName}
@@ -41,18 +42,24 @@ const EventItem = ({ event, deleteEvent, editEvent }) => {
               setUpdatedEvent({ ...updatedEvent, description: e.target.value })
             }
           ></textarea>
-          <button type="submit">Update Event</button>
-          <button onClick={() => setIsEditing(false)}>Cancel</button>
+          <div className="button-group">
+            <button type="submit">Update Event</button>
+            <button type="button" onClick={() => setIsEditing(false)}>
+              Cancel
+            </button>
+          </div>
         </form>
       ) : (
-        <div>
+        <div className="event-details">
           <h3>{event.eventName}</h3>
           <p>
             {event.date} at {event.time}
           </p>
           <p>{event.description}</p>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
-          <button onClick={() => deleteEvent(event.id)}>Delete</button>
+          <div className="button-group">
+            <button onClick={() => setIsEditing(true)}>Edit</button>
+            <button onClick={() => deleteEvent(event.id)}>Delete</button>
+          </div>
         </div>
       )}
     </div>
