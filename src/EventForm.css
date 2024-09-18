@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+.user-input {
+  border: 1px solid #868282;
+  border-radius: 2px;
+  padding: 5px;
+  outline: none;
+}

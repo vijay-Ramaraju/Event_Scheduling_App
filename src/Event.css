@@ -1,0 +1,10 @@
+.main-container {
+  display: flex;
+  justify-content: flex-start;
+  height: 100vh;
+}
+.sub-container {
+  border: 1px solid #4d4d4d;
+  display: flex;
+  justify-content: flex-start;
+}
